@@ -16,6 +16,20 @@
 
 const recursionPattern = (int1, int2) => {
     // write your code here
+    let arr = [];
+    var count = 0;
+    for (let i = int1; i >= 0; i = i - int2) {
+        arr.push(i)
+        recursionPattern(int1 - int2, int2)
+        count++;
+    }
+    arr.push(arr[arr.length - 1] - int2)
+
+    for (let index = 0; index < count; index++) {
+        arr.push(arr[arr.length - 1] + int2)
+    }
+
+    return arr;
 
 }
 // -------------------------------------------------------------------------------------------------------
