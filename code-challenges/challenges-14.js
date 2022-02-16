@@ -121,6 +121,40 @@ const arrToStr = (arr) => {
 
 const letterCounter = (str) => {
     // write your code here
+
+    let count = 0;
+    let arr = [];
+    let str2 = ""
+    for (let i = 0; i <= str.length; i++) {
+        if (i === 0) {
+            count++;
+            arr.push(str.charAt(i))
+        }
+        else {
+            if (str.charAt(i) === str.charAt(i - 1)) {
+                count++;
+
+            }
+            else if (str.charAt(i - 1) !== " ")
+                arr.push(count)
+
+            if (str.charAt(i) === " " || str.charAt(i) !== str.charAt(i - 1)) {
+                arr.push(str.charAt(i))
+                count = 1;
+
+            }
+            else {
+                if (str.charAt(i) !== str.charAt(i - 1))
+                    arr.push(str.charAt(i))
+            }
+
+        }
+    }
+
+    arr.forEach(element => {
+        str2 += element;
+    })
+    return str2
 }
 
 
